@@ -1,3 +1,7 @@
+# 2022.08.02
+# 프로그래머스 lv1 / 신고 결과 받기
+
+# 나의 풀이
 def solution(id_list, report, k):
     answer=[0]*len(id_list)
     reportNum = [0]*len(id_list)
@@ -31,6 +35,7 @@ def solution(id_list, report, k):
     
     return answer
 
+# 다른 사람 풀이 활용
 def solution2(id_list, report, k):\
     answer=[0] * len(id_list)
     numOfReport = {x : 0 for x in id_list}
@@ -46,7 +51,7 @@ def solution2(id_list, report, k):\
 
     return answer
 
-
+# 입출력 예
 id_list_input1 = ["muzi", "frodo", "apeach", "neo"]
 report_input1 = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
 k_input1 = 2
