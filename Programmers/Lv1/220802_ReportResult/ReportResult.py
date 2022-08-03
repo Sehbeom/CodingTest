@@ -30,3 +30,29 @@ def solution(id_list, report, k):
                     answer[i]+=1
     
     return answer
+
+def solution2(id_list, report, k):\
+    answer=[0] * len(id_list)
+    numOfReport = {x : 0 for x in id_list}
+    
+    for oneReport in set(report):
+        oneReportArray = oneReport.split(" ")
+        numOfReport[oneReportArray[1]]+=1
+    
+    for oneReport in set(report):
+        oneReportArray = oneReport.split(" ")
+        if numOfReport[oneReportArray[1]] >= k:
+            answer[id_list.index(oneReportArray[0])]+=1
+
+    return answer
+
+
+id_list_input1 = ["muzi", "frodo", "apeach", "neo"]
+report_input1 = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
+k_input1 = 2
+
+id_list_input2 = ["con", "ryan"]
+report_input2 = ["ryan con", "ryan con", "ryan con", "ryan con"]	
+k_input2 = 3
+
+print(solution2(id_list_input1, report_input1, k_input1))
