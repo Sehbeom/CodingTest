@@ -53,8 +53,15 @@ def solution2(s):
 
 # 입출력 예
 s_input1 = "one4seveneight"
+# 1478
+
 s_input2 = "23four5six7"
+# 234567
+
 s_input3 = "2three45sixseven"
+# 234567
+
 s_input4 = "123"
+# 123
 
 print(solution(s_input3))
