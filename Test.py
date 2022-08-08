@@ -1,5 +1,4 @@
-from itertools import combinations
-
-a = [1, 2, 3, 4]
-
-print(list(combinations(a, 3)))
+a=1
+b=2
+print(a)
+print(b)
