@@ -1,3 +1,6 @@
+# 22.08.09
+# 백준 / 2606번 바이러스
+
 from collections import deque
 
 
