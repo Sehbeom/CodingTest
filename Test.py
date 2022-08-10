@@ -1,4 +1,4 @@
-a=1
-b=2
-print(a)
-print(b)
+pos = [0, 1]
+print(pos)
+pos = [1, 3]
+print(pos)
