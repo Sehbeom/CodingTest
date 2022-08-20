@@ -1,4 +1,4 @@
-# 2022.08.08
+# 2022.08.20
 # 백준 / 4673번 Self Number
 
 def findSelfNum(allNumInfo, curNum):
