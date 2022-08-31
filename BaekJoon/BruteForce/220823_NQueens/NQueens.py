@@ -1,5 +1,5 @@
 # 2022.08.23
-# 백준 / 2798번 블랙잭
+# 백준 / 9663번 블랙잭
 
 # def putQueens(x, y, board):
 #     # diag = {'lt': True, 'lb': True, 'rb': True, 'rt': True}

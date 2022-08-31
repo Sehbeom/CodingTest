@@ -1,4 +1,5 @@
-pos = [0, 1]
-print(pos)
-pos = [1, 3]
-print(pos)
+a = 10
+b = 20
+c = 30
+print(a, b, end="0")
+print(c)
