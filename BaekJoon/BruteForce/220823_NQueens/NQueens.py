@@ -1,44 +1,110 @@
 # 2022.08.23
-# 백준 / 9663번 블랙잭
+# 백준 / 9663번 N-Queens
 
-# def putQueens(x, y, board):
-#     # diag = {'lt': True, 'lb': True, 'rb': True, 'rt': True}
-#     diag = ['lt', 'lb', 'rb', 'rt']
-
-#     for i in range(N):
-#         board[y][i] = False
-#         board[i][x] = False
-
-#     while diag:
+import time
 
 
-def putQueens(pos, board):
+def printBoard(board):
+    for i in range(1, len(board)):
+        print(board[i], end=" ")
+        if i % N == 0:
+            print("\n")
 
-    for b in board:
-        if b % N == pos % N:
-            board[b] = False
 
-        if b//N == pos//N:
-            board[b] = False
+def checkQueensRoute(board, pos):
+    board[pos] = False
 
-        if b % (N+1) == pos % (N+1):
-            board[b] = False
+    horizonStart = pos - ((pos % N)-1) if not (pos % N == 0) else pos-N+1
+    verticalStart = pos % N if (pos % N != 0) else N
+    for i in range(N):
+        board[horizonStart+i] = False
+        board[verticalStart+i*N] = False
 
-        if b % (N-1) == pos % (N-1):
-            board[b] = False
+    temp = pos
+    while (temp > N) and (temp % N != 1):
+        temp -= (N+1)
+        board[temp] = False
+
+    temp = pos
+    while (temp < (N*N-N+1)) and (temp % N != 0):
+        temp += (N+1)
+        board[temp] = False
+
+    temp = pos
+    while (temp < (N*N-N+1)) and (temp % N != 1):
+        temp += (N-1)
+        board[temp] = False
+
+    temp = pos
+    while (temp > N) and (temp % N != 1):
+        temp -= (N-1)
+        board[temp] = False
+
+
+def putQueens(board, startPos):
+    global answer
+    for i in range(startPos, startPos+N):
+        curBoard = board[:]
+        if curBoard[i]:
+            checkQueensRoute(curBoard, i)
+
+            if (startPos + N) == (N*N + 1):
+                answer += 1
+                break
+
+            else:
+                if True in curBoard[startPos+N:startPos+2*N]:
+                    putQueens(curBoard, startPos + N)
+
+
+def putQueens2(board, startPos):
+    global answer
+    for i in range(startPos, startPos+N):
+        curBoard = board[:]
+        if curBoard[i]:
+            curBoard[i] = False
+
+            horizonStart = i - ((i % N)-1) if not (i % N == 0) else i-N+1
+            verticalStart = i % N if (i % N != 0) else N
+
+            for j in range(N):
+                curBoard[horizonStart+j] = False
+                curBoard[verticalStart+j*N] = False
+
+            temp = i
+            while (temp > N) and (temp % N != 1):
+                temp -= (N+1)
+                curBoard[temp] = False
+
+            temp = i
+            while (temp < (N*N-N+1)) and (temp % N != 0):
+                temp += (N+1)
+                curBoard[temp] = False
+
+            temp = i
+            while (temp < (N*N-N+1)) and (temp % N != 1):
+                temp += (N-1)
+                curBoard[temp] = False
+
+            temp = i
+            while (temp > N) and (temp % N != 1):
+                temp -= (N-1)
+                curBoard[temp] = False
+
+            if (startPos + N) == (N*N + 1):
+                answer += 1
+                break
+
+            else:
+                if True in curBoard[startPos+N:startPos+2*N]:
+                    putQueens(curBoard, startPos + N)
 
 
 N = int(input())
-# board = [[True]*N for i in range(N)]
-board = {i: True for i in range(N*N)}
+# startTime = time.time()
+board = [True for i in range(N*N + 1)]
 
-visited = {i: [] for i in range(N*N)}
-
-putQueens(0, board)
-for i in range(N*N):
-    print(board[i], end=" ")
-    if i % N == (N-1):
-        print("\n")
-
-# for i in range(N):
-#     for j in range(N):
+answer = 0
+putQueens(board, 1)
+print(answer)
+# print("time : ", time.time() - startTime)
