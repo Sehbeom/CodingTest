@@ -15,8 +15,8 @@ def BinarySearch(listInput, target, start, end):
     return mid
 
 
-a = [2, 2, 2, 2, 2, 2,
+a = [2, 2, 2, 3, 4, 4,
      5, 5, 5, 5, 5]
 
 print(a)
-print(BinarySearch(a, 1, 0, len(a)-1))
+print(BinarySearch(a, 3, 0, len(a)-1))
