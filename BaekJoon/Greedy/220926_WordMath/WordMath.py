@@ -25,4 +25,4 @@ for c in charDic:
     answer += charDic[c] * charNum
     charNum -= 1
 
-print(int(answer))
+print(answer)
