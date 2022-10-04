@@ -1,22 +1,10 @@
-
-def BinarySearch(listInput, target, start, end):
-    while start <= end:
-        mid = (start+end)//2
-        if listInput[mid] >= target:
-            end = mid - 1
-
-        elif listInput[mid] < target:
-            start = mid + 1
-
-        if start == end:
-            mid = start if listInput[start] >= target else start+1
-            break
-
-    return mid
-
-
-a = [2, 2, 2, 3, 4, 4,
-     5, 5, 5, 5, 5]
-
-print(a)
-print(BinarySearch(a, 3, 0, len(a)-1))
+n = int(input())
+d = [0] * (n + 1)
+p = [0] + list(map(int, input().split()))
+d[1] = p[1]
+for i in range(2, n + 1):
+    print(d)
+    for j in range(1, i + 1):
+        if d[i] < d[i - j] + p[j]:
+            d[i] = d[i - j] + p[j]
+print(d[n])
