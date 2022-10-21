@@ -30,7 +30,7 @@ for i in range(n):
                 crossInfo[c] = [A]
                 crossNumInfo[c] = 1
 
-            print(max(crossNumInfo, key=crossNumInfo.get))
+            max(crossNumInfo, key=crossNumInfo.get)
 
     cablePos[A] = B
 
